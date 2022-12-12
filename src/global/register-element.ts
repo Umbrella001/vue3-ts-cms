@@ -1,9 +1,31 @@
 import type { App } from 'vue'
-import { ElButton, ElInput, ElForm, ElSelect } from 'element-plus'
+import {
+  ElButton,
+  ElInput,
+  ElForm,
+  ElSelect,
+  ElTabPane,
+  ElTabs,
+  ElIcon,
+  ElFormItem,
+  ElLink,
+  ElCheckbox
+} from 'element-plus'
 
 import 'element-plus/dist/index.css'
 
-const elementCompose = [ElButton, ElInput, ElForm, ElSelect]
+const elementCompose = [
+  ElButton,
+  ElInput,
+  ElForm,
+  ElFormItem,
+  ElSelect,
+  ElTabs,
+  ElTabPane,
+  ElIcon,
+  ElLink,
+  ElCheckbox
+]
 
 export default function registerElement(app: App): void {
   for (const ele of elementCompose) {

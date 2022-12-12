@@ -1,9 +1,7 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
-  <div>
-    <router-link to="/login">登录</router-link>
-    <router-link to="/home">首页</router-link>
+  <div class="container">
+    <!-- <router-link to="/login">登录</router-link>
+    <router-link to="/home">首页</router-link> -->
     <router-view></router-view>
   </div>
 </template>
@@ -24,6 +22,9 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  .container {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 </style>

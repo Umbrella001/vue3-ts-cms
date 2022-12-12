@@ -1,0 +1,16 @@
+# https://editorconfig.org
+# 功能说明：统一开发者在不同系统(window,mac,linux)或者不同编译器(webstrom,vscode)下规范一些编码习惯，比如空格，缩进，换行，tab等
+# 问题整合：vscode可能对这个文件无效，可以安装插件, EditorConfig for VS Code
+root = true
+
+[*] # 表示所有文件通用
+charset = utf-8 # 设置文件字符集为 utf-8
+indent_style = space # 缩进风格（tab | space）
+indent_size = 2 # 缩进大小
+end_of_line = lf # 控制换行符类型（lf | cr | crlf）
+insert_final_newline = true # 去除行首的任意空白字符
+trim_trailing_whitespace = true # 始终在文件末尾插入一个新行
+
+[*.md]
+insert_final_newline = false
+trim_trailing_whitespace = false

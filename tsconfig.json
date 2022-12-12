@@ -1,39 +1,38 @@
 {
+  /* ----- 对应官网说明：https://www.typescriptlang.org/tsconfig ----- */
   "compilerOptions": {
+    // 将ts代码转成那种es版本的js(es5/es6/7), 如果使用babel去解析ts的话，那么target的使用esnext就会自动根据.browserslistrc进行适配
     "target": "esnext",
+    // 目标代码使用那种模块化方案（commonjs / es module / amd / cmd）
     "module": "esnext",
+    // 开启ts的严格模式检查
     "strict": true,
+    // 了解：要不要对jsx处理，preserve不转换保留jsx，babel会对需要的进行转，所以一般是preserve
     "jsx": "preserve",
+    // 了解： 辅助的导入功能
     "importHelpers": true,
+    // 按照node的方式解析模块
     "moduleResolution": "node",
+    // 跳过一些库的类型检测，一般为true，没有必要，别人怎么写是他们的事
     "skipLibCheck": true,
+    // 是否支持 esmodule 和 commonjs 语法同时存在一个模块中，一般运行
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    // 是否生成映射文件，ts编译后的js（ts -> js）
     "sourceMap": true,
+    // 文件路径在解析时，基本url
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
+    // 指定具体要解析使用的类型，跟target的目标转义一个意思，可以不传
+    "types": ["webpack-env"],
+    // 路径解析，一般跟vue.config.js中的别名保持一致就行
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
+      "components": ["@/component"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    // 可以指定项目中可以使用那些库的类型，就是d.ts的配置变量，一般写下面这些就足够了
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  // include 哪些需要进行tsconfig进行解析或者约束，exclude就是不包含
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
+  "exclude": ["node_modules"]
 }

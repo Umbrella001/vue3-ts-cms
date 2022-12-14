@@ -59,7 +59,7 @@ export default defineComponent({
 
     const handleLogin = () => {
       if (panelName.value === 'account') {
-        accountRef.value?.accountValidate()
+        accountRef.value?.accountValidate(isRememberPwd.value)
       } else {
         phoneRef.value?.phoneValidate()
       }
@@ -85,14 +85,16 @@ export default defineComponent({
   align-items: center;
   width: 100%;
   height: 100%;
+  background: url('../../assets/img/login-bg.png');
 
   :deep(.el-tabs--border-card > .el-tabs__content) {
     padding: 30px 15px 15px;
   }
 
   .title {
-    text-align: center;
     margin-bottom: 15px;
+    color: #f5f5f5;
+    text-align: center;
   }
 
   .panel {

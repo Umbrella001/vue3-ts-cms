@@ -1,5 +1,5 @@
 const baseUrl = {
-  development: 'http://123.207.32.32:8000/dev',
+  development: '/api',
   test: 'http://123.207.32.32:8000/test',
   production: 'http://123.207.32.32:8000/'
 }
@@ -8,11 +8,13 @@ const TIME_OUT = 10000
 
 const ENV = process.env.NODE_ENV
 
+console.log('EVN?>>>', ENV)
+
 let requestUrl = baseUrl.production
 
-if (ENV === baseUrl.development) {
+if (ENV === 'development') {
   requestUrl = baseUrl.development
-} else if (ENV === baseUrl.test) {
+} else if (ENV === 'test') {
   requestUrl = baseUrl.test
 }
 

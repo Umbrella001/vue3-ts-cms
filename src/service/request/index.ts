@@ -31,7 +31,7 @@ class AxiosRequest {
     // 添加全局的拦截器（只要使用该实例就会有对应的拦截器）
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('全局请求成功拦截')
+        // console.log('全局请求成功拦截')
 
         if (this.showFetchLoading) {
           this.loading = ElLoading.service({
@@ -50,7 +50,7 @@ class AxiosRequest {
 
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('全局的响应成功拦截')
+        // console.log('全局的响应成功拦截')
         const data = res.data
 
         this.loading?.close()
@@ -65,7 +65,7 @@ class AxiosRequest {
         }
       },
       (err) => {
-        console.log('全局的响应失败拦截')
+        // console.log('全局的响应失败拦截')
 
         this.loading?.close()
 

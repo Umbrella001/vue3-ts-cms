@@ -1,12 +1,16 @@
 import { createApp } from 'vue'
-import globalRegister from './global'
-
-import rootApp from './App.vue'
 import router from '@/router'
 import store from '@/store'
 
+import 'normalize.css'
+
+import rootApp from './App.vue'
+import globalRegister from './global'
+import { setupStore } from '@/store'
+
 const app = createApp(rootApp)
 
+setupStore()
 // registerApp(app)
 // 优雅写法
 app.use(globalRegister)

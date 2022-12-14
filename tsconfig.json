@@ -26,8 +26,7 @@
     "types": ["webpack-env"],
     // 路径解析，一般跟vue.config.js中的别名保持一致就行
     "paths": {
-      "@/*": ["src/*"],
-      "components": ["@/component"]
+      "@/*": ["src/*"]
     },
     // 可以指定项目中可以使用那些库的类型，就是d.ts的配置变量，一般写下面这些就足够了
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]

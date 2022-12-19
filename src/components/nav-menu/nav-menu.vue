@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 import { useStore } from '@/store'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -45,7 +45,7 @@ export default defineComponent({
     const userMenus = computed(() => store.state.loginStore.userMenus)
 
     // 2.默认值的问题
-    const route = useRoute()
+    // const route = useRoute()
 
     // const currentMenu = mapPathToMenu(userMenus, route.path)
     // const defaultValue = ref<string>(currentMenu.id + '')

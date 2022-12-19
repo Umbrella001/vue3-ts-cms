@@ -62,7 +62,7 @@ const loginStore: Module<LoginType, RootType> = {
       localCache.set('userMenus', menus)
 
       // 4.跳转到首页
-      router.push('/home')
+      router.push('/main')
     }
   }
 }

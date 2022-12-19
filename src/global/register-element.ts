@@ -9,7 +9,14 @@ import {
   ElIcon,
   ElFormItem,
   ElLink,
-  ElCheckbox
+  ElCheckbox,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
+  ElSubMenu,
+  ElMenuItem,
+  ElMenu
 } from 'element-plus'
 
 import 'element-plus/dist/index.css'
@@ -24,7 +31,14 @@ const elementCompose = [
   ElTabPane,
   ElIcon,
   ElLink,
-  ElCheckbox
+  ElCheckbox,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
+  ElMenu,
+  ElSubMenu,
+  ElMenuItem
 ]
 
 export default function registerElement(app: App): void {

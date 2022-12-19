@@ -1,6 +1,6 @@
-import { createStore } from 'vuex'
+import { createStore, Store, useStore as useVuexStore } from 'vuex'
 
-import { RootType } from './type'
+import { IStoreType, RootType } from './type'
 import loginStore from './login/login'
 
 const store = createStore<RootType>({
@@ -17,6 +17,11 @@ const store = createStore<RootType>({
 
 export function setupStore() {
   store.dispatch('loginStore/setupLocalLogin')
+}
+
+// 在vuex中写TS（支持检测模块问题）
+export function useStore(): Store<IStoreType> {
+  return useVuexStore()
 }
 
 export default store

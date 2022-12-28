@@ -9,11 +9,18 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/login',
+    name: 'login',
     component: () => import('../view/login/index.vue')
   },
   {
     path: '/main',
+    name: 'main',
     component: () => import('../view/main/index.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: () => import(/* webpackPrefetch: true */ '../view/404/404.vue')
   }
 ]
 

@@ -16,7 +16,10 @@ import {
   ElMain,
   ElSubMenu,
   ElMenuItem,
-  ElMenu
+  ElMenu,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu
 } from 'element-plus'
 
 import 'element-plus/dist/index.css'
@@ -38,7 +41,10 @@ const elementCompose = [
   ElMain,
   ElMenu,
   ElSubMenu,
-  ElMenuItem
+  ElMenuItem,
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem
 ]
 
 export default function registerElement(app: App): void {

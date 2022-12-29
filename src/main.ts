@@ -17,4 +17,4 @@ app.use(globalRegister)
 
 app.use(router).use(store).mount('#app')
 
-console.log(process.env.VUE_APP_BASE_URL, '全局配置的文件>>>')
+// console.log(process.env.VUE_APP_BASE_URL, '全局配置的文件>>>')

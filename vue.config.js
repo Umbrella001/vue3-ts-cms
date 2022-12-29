@@ -4,6 +4,10 @@ const resolve = (pathname) => path.resolve(__dirname, pathname)
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/' : './',
   devServer: {
+    overlay: {
+      // warnings: true,
+      errors: true
+    },
     proxy: {
       '/api': {
         target: 'http://152.136.185.210:5000',

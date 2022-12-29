@@ -8,7 +8,7 @@ const TIME_OUT = 10000
 
 const ENV = process.env.NODE_ENV
 
-console.log('EVN?>>>', ENV)
+console.log('EVN', ENV)
 
 let requestUrl = baseUrl.production
 

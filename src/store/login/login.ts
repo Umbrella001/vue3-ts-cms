@@ -1,11 +1,11 @@
 import { Module } from 'vuex'
 
-import { LoginType } from './type'
+import { LoginType, IUserMenuType } from './type'
 import { RootType } from '../type'
 
 import { accountLoginRequest, userInfoRequest, userMenusRequest } from '@/service/login/login'
 import { AccountType, IUserInfoResult } from '@/service/login/type'
-import { localCache } from '@/utils'
+import { localCache, mapMenusToRoutes } from '@/utils'
 import router from '@/router'
 
 // S为当前模块state的类型，R为根state的类型
@@ -25,8 +25,15 @@ const loginStore: Module<LoginType, RootType> = {
     changeUserInfoState(state, payload: IUserInfoResult) {
       state.userInfo = payload
     },
-    changeUserMenusState(state, payload: any) {
+    changeUserMenusState(state, payload: IUserMenuType[]) {
       state.userMenus = payload
+
+      const routes = mapMenusToRoutes(payload)
+      console.log('最终的匹配结果', routes)
+
+      routes.forEach((route) => {
+        router.addRoute('main', route)
+      })
     }
   },
   actions: {

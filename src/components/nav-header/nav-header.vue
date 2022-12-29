@@ -6,16 +6,21 @@
       </el-icon>
     </div>
     <div class="content">
-      <!-- <header-crumb />
-      <header-info /> -->
+      <div>面包屑</div>
+      <!--  <header-crumb /> -->
+      <header-info />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import HeaderInfo from './cpns/header-info.vue'
 
 export default defineComponent({
+  components: {
+    HeaderInfo
+  },
   emits: ['foldChange'],
   setup(props, { emit }) {
     const isFold = ref(false)

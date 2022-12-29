@@ -6,6 +6,7 @@
     </div>
     <!-- defaultValue -->
     <el-menu
+      :default-active="defaultValue"
       :collapse="fold"
       text-color="#b7bdc3"
       active-text-color="#fff"
@@ -29,9 +30,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useStore } from '@/store'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+import { mapPathToMenu } from '@/utils'
 
 export default defineComponent({
   props: {
@@ -42,20 +44,22 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const userMenus = computed(() => store.state.loginStore.userMenus)
+    const userMenus = store.state.loginStore.userMenus
 
     // 2.默认值的问题
-    // const route = useRoute()
+    const route = useRoute()
+    const currentMenu = mapPathToMenu(userMenus, route.path)
+    const defaultValue = ref<string>(currentMenu.id + '')
+    // console.log(route.path, userMenus, currentMenu)
 
-    // const currentMenu = mapPathToMenu(userMenus, route.path)
-    // const defaultValue = ref<string>(currentMenu.id + '')
     // 2.监听item点击
     const router = useRouter()
     function handleItemClick(item: any) {
-      router.push(item.url)
+      router.push(item.url ?? '/404')
     }
     return {
       userMenus,
+      defaultValue,
       handleItemClick
     }
   }

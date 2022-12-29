@@ -1,5 +1,8 @@
 import { RouteRecordRaw } from 'vue-router'
 import { IUserMenuType, Child } from '@/store/login/type'
+import { IBreakCrumbs } from '@/base-ui/breadcrumb'
+
+let firstMenu: any = null
 
 export function mapMenusToRoutes(userMenus: IUserMenuType[]): RouteRecordRaw[] {
   const routes: RouteRecordRaw[] = []
@@ -23,6 +26,11 @@ export function mapMenusToRoutes(userMenus: IUserMenuType[]): RouteRecordRaw[] {
       if (menu.type === 2) {
         const route = allRoutes.find((route) => route.path === menu.url)
         route && routes.push(route)
+
+        // 记录第一个菜单信息
+        if (!firstMenu) {
+          firstMenu = menu
+        }
       } else {
         loopGetRoute(menu.children)
       }
@@ -33,12 +41,31 @@ export function mapMenusToRoutes(userMenus: IUserMenuType[]): RouteRecordRaw[] {
   return routes
 }
 
-export function mapPathToMenu(userMenus: IUserMenuType[] | Child[], path: string) {
+export function mapPathToMenu(
+  userMenus: IUserMenuType[] | Child[],
+  path: string,
+  breakcrumbs?: IBreakCrumbs[]
+): any {
   for (const menu of userMenus) {
-    if (menu.children) {
-      for (const submenu of menu.children) {
-        if (path === submenu.url) return submenu
+    if (menu.type === 1) {
+      const findMenu = mapPathToMenu(menu.children ?? [], path)
+      if (findMenu) {
+        breakcrumbs?.push({ name: menu.name, path: findMenu.url })
+        breakcrumbs?.push({ name: findMenu.name, path: findMenu.url })
+        return findMenu
       }
+    } else if (menu.type === 2 && menu.url === path) {
+      return menu
     }
   }
 }
+
+export function mapPathBreakcrumb(userMenus: IUserMenuType[] | Child[], path: string) {
+  const breakcrumbs: IBreakCrumbs[] = []
+
+  mapPathToMenu(userMenus, path, breakcrumbs)
+
+  return breakcrumbs
+}
+
+export { firstMenu }

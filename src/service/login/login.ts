@@ -1,6 +1,7 @@
 import axiosRequest from '..'
 
-import { AccountType, ILoginResult, IUserInfoResult, IDataType } from './type'
+import { AccountType, ILoginResult, IUserInfoResult } from './type'
+import { IDataType } from '@/service/types'
 
 enum LoginApi {
   AccoutLogin = '/login',

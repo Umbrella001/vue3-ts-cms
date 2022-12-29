@@ -99,7 +99,6 @@ class AxiosRequest {
 
           this.showFetchLoading = CONFIG_LOADING_STATUS
 
-          console.log(res)
           resolve(res)
         })
         .catch((e) => {

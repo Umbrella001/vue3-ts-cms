@@ -1,4 +1,4 @@
 import localCache from './localCache'
-import { mapMenusToRoutes, mapPathToMenu } from './map-menus'
+import { mapMenusToRoutes, mapPathToMenu, mapPathBreakcrumb, firstMenu } from './map-menus'
 
-export { localCache, mapMenusToRoutes, mapPathToMenu }
+export { localCache, mapMenusToRoutes, mapPathToMenu, mapPathBreakcrumb, firstMenu }

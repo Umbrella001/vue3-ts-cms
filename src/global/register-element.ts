@@ -19,7 +19,16 @@ import {
   ElMenu,
   ElDropdown,
   ElDropdownItem,
-  ElDropdownMenu
+  ElDropdownMenu,
+  ElRow,
+  ElCol,
+  ElOption,
+  ElDatePicker,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElTable,
+  ElTableColumn,
+  ElTag
 } from 'element-plus'
 
 import 'element-plus/dist/index.css'
@@ -30,6 +39,7 @@ const elementCompose = [
   ElForm,
   ElFormItem,
   ElSelect,
+  ElOption,
   ElTabs,
   ElTabPane,
   ElIcon,
@@ -44,7 +54,15 @@ const elementCompose = [
   ElMenuItem,
   ElDropdown,
   ElDropdownMenu,
-  ElDropdownItem
+  ElDropdownItem,
+  ElRow,
+  ElCol,
+  ElDatePicker,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElTable,
+  ElTableColumn,
+  ElTag
 ]
 
 export default function registerElement(app: App): void {
